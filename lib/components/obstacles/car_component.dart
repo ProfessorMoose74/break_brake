@@ -200,16 +200,16 @@ class CarComponent extends PositionComponent with CollisionCallbacks {
   }
 
   void _renderWreckage(Canvas canvas) {
-    final progress = destructionTimer / destructionDuration;
+    final progress = (destructionTimer / destructionDuration).clamp(0.0, 1.0);
     final paint = Paint()..style = PaintingStyle.fill;
 
     // Fade out and flatten
-    final opacity = 1.0 - progress;
+    final opacity = (1.0 - progress).clamp(0.0, 1.0);
     final wreckageWidth = carWidth * (1.0 + progress * 0.5); // Spread out
     final wreckageLength = carLength * (1.0 - progress * 0.3); // Flatten
 
     // Draw flattened, smoking wreckage
-    paint.color = carColor.withOpacity(opacity * 0.5);
+    paint.color = carColor.withValues(alpha: (opacity * 0.5).clamp(0.0, 1.0));
 
     canvas.drawRRect(
       RRect.fromRectAndRadius(
@@ -224,7 +224,7 @@ class CarComponent extends PositionComponent with CollisionCallbacks {
     );
 
     // Scorch marks
-    paint.color = Colors.black.withOpacity(opacity * 0.3);
+    paint.color = Colors.black.withValues(alpha: (opacity * 0.3).clamp(0.0, 1.0));
     canvas.drawCircle(Offset.zero, wreckageWidth * 0.6, paint);
   }
 

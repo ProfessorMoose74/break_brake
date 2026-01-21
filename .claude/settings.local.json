@@ -28,7 +28,10 @@
       "Bash(rm \".\\nul\")",
       "Bash(powershell -Command \"Remove-Item ''.\\nul'' -Force\")",
       "Bash(powershell -Command \"''{0:N2} MB'' -f ((Get-ChildItem -Path ''assets/images/trucks/'' -Recurse -File | Measure-Object -Property Length -Sum).Sum / 1MB); ''{0:N2} MB'' -f ((Get-ChildItem -Path ''assets_source/'' -Recurse -File | Measure-Object -Property Length -Sum).Sum / 1MB)\")",
-      "Bash(powershell -Command \"Get-ChildItem -Path ''''assets/images/trucks/'''',''''assets_source/'''' -Recurse -File | Where-Object { $_ength -gt 1MB } | Select-Object -First 20 FullName,@{Name=''''SizeMB'''';Expression={''''{0:N2}'''' -f ($_ength / 1MB)}}\")"
+      "Bash(powershell -Command \"Get-ChildItem -Path ''''assets/images/trucks/'''',''''assets_source/'''' -Recurse -File | Where-Object { $_ength -gt 1MB } | Select-Object -First 20 FullName,@{Name=''''SizeMB'''';Expression={''''{0:N2}'''' -f ($_ength / 1MB)}}\")",
+      "Bash(wc -l:*)",
+      "Bash(flutter doctor:*)",
+      "Bash(flutter clean:*)"
     ],
     "deny": [],
     "ask": []

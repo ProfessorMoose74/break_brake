@@ -81,6 +81,7 @@ flutter:
   # Game Assets
   assets:
     - assets/images/
+    - assets/images/trucks/
     - assets/audio/sounds/
     - assets/audio/music/
 
